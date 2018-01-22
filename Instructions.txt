@@ -1,0 +1,12 @@
+1. Installing Node
+
+Refer node.js org to install the latest version
+Verify the version of the node in the terminal node -v or node --version
+
+2. What is Node
+Javascript runtime to built on chrome engine (chrome's v8 JS engine)
+
+Node js uses non blocking I/O model makes it lightweight and efficient
+
+Nodemon will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
+https://github.com/remy/nodemon
