@@ -10,3 +10,10 @@ Node js uses non blocking I/O model makes it lightweight and efficient
 
 Nodemon will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
 https://github.com/remy/nodemon
+
+3. Add "Debugger" in the code for code verification
+  Add "debugger" in the node js,to add the breakpoint.
+  "node inspect" to run in the debugger.
+  then enter "c" in the command prompt.
+  then enter "repl" to read the values of the objects.
+  and ctrl+c (2 times) to quit from the debugger mode.
