@@ -23,7 +23,7 @@ var addNote = (title, body) => {
     title,
     body
   };
-  //check for duplicate in the file
+  //check for duplicate in the file, if the duplicate exist then don't add the note
   var duplicateNotes = notes.filter((note) => note.title === title);
   if (duplicateNotes.length === 0) {
     notes.push(note);
@@ -33,10 +33,11 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
+  return fetchNotes();
   console.log('getting all notes');
 }
 
-//Retrieve the note
+//Retrieve the note from the file where all other notes are stored.
 var getNote = (title) => {
   var notes = fetchNotes();
   var filteredNotes = notes.filter((note) => note.title === title);
@@ -45,7 +46,7 @@ var getNote = (title) => {
 }
 
 var removeNote = (title) => {
-  //fetch notes
+  //fetch all notes
   var notes = fetchNotes();
   //filter notes, removing the one with the title of arguement
   var filteredNotes = notes.filter((note) => note.title != title);

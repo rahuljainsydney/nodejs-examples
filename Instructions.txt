@@ -17,3 +17,11 @@ https://github.com/remy/nodemon
   then enter "c" in the command prompt.
   then enter "repl" to read the values of the objects.
   and ctrl+c (2 times) to quit from the debugger mode.
+
+4. Run debugger in chrome
+  node --inspect-brk .\playground\debugging.js
+  then , open chrome using  chrome://inspect/#devices.
+
+  We can also run using nodemon
+
+5. yargs for arguement

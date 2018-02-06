@@ -3,8 +3,34 @@ const _ = require('lodash');
 const notes = require('./notes');
 const yargs = require('yargs');
 
-//run the app like node app add
-const argv = yargs.argv;
+//run the app like node app add, command
+//const argv = yargs.argv;  this command wont prompt user what are the arguements required
+var command_arguement ={   // this yargs will allow user to show the arguements require with the command in the help
+  title:{
+    describe:'Title of note',
+    demand:true,
+    alias:'t'
+  },
+  body:{
+    describe:'Body of note',
+    demand:true,
+    alias:'b'
+  }
+}
+const argv = yargs
+  .command('add','Add a new note',{
+    title:command_arguement.title,
+    body:command_arguement.body
+  })
+  .command('list','List all Notes')
+  .command('read','Read all notes',{
+    title:command_arguement.title
+  })
+  .command('remove','Remove a note',{
+    title:command_arguement.title
+  })
+  //.help()
+  .argv;
 var command = argv._[0];
 console.log('yargs:', argv);
 
@@ -19,7 +45,9 @@ if (command === 'add') {
   }
 } else if (command === 'list') {
   console.log('Listing all notes');
-  notes.getAll();
+  var allNotes = notes.getAll();
+  console.log(`printing  ${allNotes.length} note(s).`);
+  allNotes.forEach((note) => notes.logNote(note));
 } else if (command === 'read') {
   var note = notes.getNote(argv.title);
   if (note) {
